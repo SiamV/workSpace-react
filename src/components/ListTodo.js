@@ -7,10 +7,10 @@ const ListTodo = (props) => {
             <div key={list.id}>
                 <input
                     onChange={(e) => {
-                        let editList = props.listTodo.map(item => item.id === list.id
-                            ? list.list = e.target.value
-                            : null)
-                        props.setListTodo(editList)
+                        // let editList = props.listTodo.map(item => item.id === list.id
+                        //     ? list.list = e.target.value
+                        //     : null)
+                        // props.setListTodo(editList)
                     }}
                     value={list.list} />
                 <EditButton id={list.id} list={props.listTodo} />
