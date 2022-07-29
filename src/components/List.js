@@ -2,25 +2,30 @@ import React, { useState } from "react";
 
 const List = ({ idListItem, listItem, listTodo, setListTodo }) => {
     const [editMode, setEditMode] = useState(false)
+    const [localList, setLocalList] = useState(listItem)
 
     let editModeOn = () => {
         setEditMode(true)
 
     }
-
+    let editSent = () => {
+        let editedList = listTodo.map(item => item.id === idListItem ?
+            { ...item, list: localList }
+            : item)
+        setListTodo(editedList)
+        setEditMode(false)
+    }
     return (
         <div>
             <input
                 onChange={(e) => {
-                    // let editList = listTodo.map(item => item.id === list.id
-                    //     ? list.list = e.target.value
-                    //     : null)
-                    // setListTodo(editList)
+                    setLocalList(e.target.value)
                 }}
-                value={listItem} />
+                value={localList}
+                readOnly={!editMode} />
             {editMode
                 ? <div>
-                    <button onClick={() => { setEditMode(false) }}>Sent</button>
+                    <button onClick={editSent}>Sent</button>
                 </div>
                 : <div>
                     <button onClick={editModeOn}>Edit</button>
