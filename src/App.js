@@ -1,10 +1,10 @@
 import './App.css';
-import TodoDate from './components/TodoDate';
+import Main from './components/Main';
 
 function App() {
   return (
     <div className="App">
-      <TodoDate />
+      <Main />
     </div>
   );
 }
