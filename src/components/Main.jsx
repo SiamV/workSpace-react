@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from "react";
+import ChangeDate from "./ChangeDate";
 
 const Main = () => {
+  const [list, setList] = useState("Fist Date");
+    let newDate = (date) => {
+        setList(date)
+    }
   return (
-    <div>Main</div>
-  )
-}
+    <div>
+      <h1>Main</h1>
+      <div>'Date from localState:'{list}</div>
+      <ChangeDate setNewDateCB={newDate}/>
+    </div>
+  );
+};
 
-export default Main
+export default Main;
