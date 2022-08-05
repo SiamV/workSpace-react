@@ -3,9 +3,16 @@ import CityInfo from "./CityInfo";
 import axios from 'axios';
 
 const Main = () => {
+<<<<<<< HEAD
   const [city, setCity] = useState("");
   const [cityName, setCityName] = useState("Mexico");
   const [data, setData] = useState(null);
+=======
+  return (
+    <div>New App2</div>
+  )
+}
+>>>>>>> main
 
   let onPushEnter = (e) => {
     if (e.key === "Enter") {
