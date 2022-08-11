@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import classes from "./createBook.module.css";
+import { dataContainer } from "./DataContainer";
+import { NavLink } from "react-router-dom";
 
 const CreateBook = () => {
+  let data = useContext(dataContainer);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [src, setSrc] = useState("");
   const ref = React.createRef();
 
   let createBook = () => {
-    console.log(title, desc, src);
+    data[1]([
+      ...data[0],
+      {
+        id: Date.now(),
+        name: title,
+        description: desc,
+        src: "",
+      },
+    ]);
   };
 
   return (
@@ -39,13 +50,19 @@ const CreateBook = () => {
           type="file"
           accept={"image/*"}
           ref={ref}
-          onChange={()=> {setSrc(ref.current.files[0].name)}}
+          onChange={(e) => {
+            setSrc(e.target.files[0]);
+          }}
         />
       </label>
       <label>
         <img src={`/${src}`} alt={src} />
       </label>
-      <button onClick={createBook}>Create</button>
+      {/* don't work NavLink */}
+
+      <NavLink to={"/"}>
+        <button onClick={createBook}>Create</button>
+      </NavLink>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import './App.css';
-import Main from './components/Main';
+import DataContainer from './components/DataContainer';
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <DataContainer />
     </div>
   );
 }
