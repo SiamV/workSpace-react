@@ -22,7 +22,7 @@ const DataContainer = () => {
   return (
     <BrowserRouter>
     <dataContainer.Provider value={[dataDetails, setDataDetails]}>
-      <Main dataDetails={dataDetails} />
+      <Main />
     </dataContainer.Provider>
     </BrowserRouter>
   );

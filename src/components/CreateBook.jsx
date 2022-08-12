@@ -58,8 +58,6 @@ const CreateBook = () => {
       <label>
         <img src={`/${src}`} alt={src} />
       </label>
-      {/* don't work NavLink */}
-
       <NavLink to={"/"}>
         <button onClick={createBook}>Create</button>
       </NavLink>
