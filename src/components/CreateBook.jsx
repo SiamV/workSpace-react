@@ -7,19 +7,20 @@ const CreateBook = () => {
   let data = useContext(dataContainer);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  const [src, setSrc] = useState("");
+  const [url, setUrl] = useState("start");
   const ref = React.createRef();
 
   let createBook = () => {
-    data[1]([
-      ...data[0],
-      {
-        id: Date.now(),
-        name: title,
-        description: desc,
-        src: "",
-      },
-    ]);
+    // data[1]([
+    //   ...data[0],
+    //   {
+    //     id: Date.now(),
+    //     name: title,
+    //     description: desc,
+    //     src: "",
+    //   },
+    // ]);
+    console.log("url:", url);
   };
 
   return (
@@ -51,12 +52,18 @@ const CreateBook = () => {
           accept={"image/*"}
           ref={ref}
           onChange={(e) => {
-            setSrc(e.target.files[0]);
+            let file = e.target.files[0];
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = () => {
+              let url = reader.result;
+              setUrl(url);
+            };
           }}
         />
       </label>
       <label>
-        <img src={`/${src}`} alt={src} />
+        <img src={url} alt={'choose a foto'} width={'150px'}/>
       </label>
       <NavLink to={"/"}>
         <button onClick={createBook}>Create</button>
