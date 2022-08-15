@@ -1,0 +1,9 @@
+.containerBooksInfo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.containerBook {
+    margin: 10px;
+}

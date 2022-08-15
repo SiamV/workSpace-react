@@ -11,16 +11,15 @@ const CreateBook = () => {
   const ref = React.createRef();
 
   let createBook = () => {
-    // data[1]([
-    //   ...data[0],
-    //   {
-    //     id: Date.now(),
-    //     name: title,
-    //     description: desc,
-    //     src: "",
-    //   },
-    // ]);
-    console.log("url:", url);
+    data[1]([
+      ...data[0],
+      {
+        id: Date.now(),
+        name: title,
+        description: desc,
+        src: "",
+      },
+    ]);
   };
 
   return (
