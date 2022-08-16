@@ -7,3 +7,11 @@
 .containerBook {
     margin: 10px;
 }
+
+.containerBook img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+}

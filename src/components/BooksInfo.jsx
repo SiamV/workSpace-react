@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { dataContainer } from "./DataContainer";
+import { dataContainer } from "./Store";
 import fotoDefault from "../img/default.png";
 import classes from './booksInfo.module.css'
 

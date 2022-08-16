@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import classes from "./createBook.module.css";
-import { dataContainer } from "./DataContainer";
+import { dataContainer } from "./Store";
 import { NavLink } from "react-router-dom";
 
 const CreateBook = () => {
@@ -14,10 +14,10 @@ const CreateBook = () => {
     data[1]([
       ...data[0],
       {
-        id: Date.now(),
+        id: crypto.randomUUID(),
         name: title,
         description: desc,
-        src: "",
+        src: url,
       },
     ]);
   };

@@ -1,18 +1,19 @@
 import React from "react";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { dataContainer } from "./DataContainer";
+import { dataContainer } from "./Store";
 import fotoDefault from "../img/default.png";
+import classes from "./bookDetail.module.css";
 
 const BookDetail = () => {
   let { idBook } = useParams();
   let data = useContext(dataContainer);
-  let book = data[0].filter((it) => it.id === Number(idBook));
+  let book = data[0].filter((it) => it.id === idBook);
   return (
-    <div>
+    <div className={classes.bookContainer}>
       <div>
         {book[0].src.length > 0 ? (
-          <img src={""} alt={"foto"} />
+          <img src={book[0].src} alt={"foto"} />
         ) : (
           <img src={fotoDefault} alt={"foto"} />
         )}

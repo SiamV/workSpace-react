@@ -1,10 +1,10 @@
 import './App.css';
-import DataContainer from './components/DataContainer';
+import Store from './components/Store.jsx';
 
 function App() {
   return (
     <div className="App">
-      <DataContainer />
+      <Store />
     </div>
   );
 }

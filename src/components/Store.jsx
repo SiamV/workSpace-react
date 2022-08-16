@@ -4,16 +4,16 @@ import Main from "./Main";
 
 export let dataContainer = React.createContext(null);
 
-const DataContainer = () => {
+const Store = () => {
   const [dataDetails, setDataDetails] = useState([
     {
-      id: Math.floor(Math.random() * 100),
+      id: crypto.randomUUID(),
       name: "Harry Poter",
       description: "My lovly book",
       src: "",
     },
     {
-      id: Math.floor(Math.random() * 100),
+      id: crypto.randomUUID(),
       name: "Piter Pen",
       description: "This book I read in my school",
       src: "",
@@ -28,4 +28,4 @@ const DataContainer = () => {
   );
 };
 
-export default DataContainer;
+export default Store;
