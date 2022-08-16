@@ -8,7 +8,7 @@ const BooksInfo = () => {
   let data = React.useContext(dataContainer);
   return (
     <div className={classes.containerBooksInfo}>
-      {data[0].map((it) => (
+      {data.books.map((it) => (
         <div key={it.id} className={classes.containerBook}>
           {it.src.length > 0 ? (
             <img src={it.src} alt={"foto"} />
@@ -16,7 +16,7 @@ const BooksInfo = () => {
             <img src={fotoDefault} alt={"foto"} />
           )}
           <NavLink to={`/book/${it.id}`}>
-            <div>{it.name}</div>
+            <div>{it.title}</div>
           </NavLink>
         </div>
       ))}

@@ -3,23 +3,30 @@ import classes from "./createBook.module.css";
 import { dataContainer } from "./Store";
 import { NavLink } from "react-router-dom";
 
-const CreateBook = () => {
+const CreateBook = ({ book, updateMode, setUpdateMode }) => {
   let data = useContext(dataContainer);
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-  const [url, setUrl] = useState("start");
+  const [title, setTitle] = useState(updateMode ? book.title : "");
+  const [desc, setDesc] = useState(updateMode ? book.description : "");
+  const [url, setUrl] = useState(updateMode ? book.src : "");
   const ref = React.createRef();
 
   let createBook = () => {
-    data[1]([
-      ...data[0],
-      {
-        id: crypto.randomUUID(),
-        name: title,
-        description: desc,
-        src: url,
-      },
-    ]);
+    data.createBook({
+      id: crypto.randomUUID(),
+      title: title,
+      description: desc,
+      src: url,
+    });
+  };
+
+  let updateBook = () => {
+    data.updateBook(book.id, {
+      id: book.id,
+      title: title,
+      description: desc,
+      src: url,
+    });
+    setUpdateMode(false);
   };
 
   return (
@@ -62,10 +69,14 @@ const CreateBook = () => {
         />
       </label>
       <label>
-        <img src={url} alt={'choose a foto'} width={'150px'}/>
+        <img src={url} alt={"choose a foto"} width={"150px"} />
       </label>
       <NavLink to={"/"}>
-        <button onClick={createBook}>Create</button>
+        {updateMode ? (
+          <button onClick={updateBook}>Update</button>
+        ) : (
+          <button onClick={createBook}>Create</button>
+        )}
       </NavLink>
     </div>
   );

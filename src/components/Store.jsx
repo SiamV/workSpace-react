@@ -1,29 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Main from "./Main";
 
+// use Default only for testing components. In other case alwais use Provider
 export let dataContainer = React.createContext(null);
 
 const Store = () => {
-  const [dataDetails, setDataDetails] = useState([
+  const [books, setBooks] = useState([
     {
       id: crypto.randomUUID(),
-      name: "Harry Poter",
+      title: "Harry Poter",
       description: "My lovly book",
       src: "",
     },
     {
       id: crypto.randomUUID(),
-      name: "Piter Pen",
+      title: "Piter Pen",
       description: "This book I read in my school",
       src: "",
     },
   ]);
+
+  let createBook = (book) => {
+    setBooks([...books, book]);
+  };
+
+  let updateBook = (bookId, book) => {
+    setBooks(books.map((it) => (it.id === bookId ? (it = book) : it)));
+  };
+  let deleteBook = (bookId) => {
+    setBooks(books.filter((it) => it.id !== bookId));
+  };
+
   return (
     <BrowserRouter>
-    <dataContainer.Provider value={[dataDetails, setDataDetails]}>
-      <Main />
-    </dataContainer.Provider>
+      {/* If dont use Provider use DEFAULT value when create Context */}
+      <dataContainer.Provider
+        value={{ books, createBook, updateBook, deleteBook }}>
+        <Main />
+      </dataContainer.Provider>
     </BrowserRouter>
   );
 };
