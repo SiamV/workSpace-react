@@ -1,14 +1,18 @@
-import React from 'react'
-import {NavLink} from "react-router-dom";
-import classes from "./menu.module.css"
+import React from "react";
+import { NavLink } from "react-router-dom";
+import classes from "./menu.module.css";
 
 const Menu = () => {
   return (
     <div className={classes.containerMenu}>
-        <button><NavLink to={'/'}>Main</NavLink></button>
-        <button><NavLink to={'/create-new-book'}>Create</NavLink></button>
+      <NavLink to={"/"}>
+        <button>Main</button>
+      </NavLink>
+      <NavLink to={"/create-new-book"}>
+        <button>Create</button>
+      </NavLink>
     </div>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

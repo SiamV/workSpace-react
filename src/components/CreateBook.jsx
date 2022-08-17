@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import classes from "./createBook.module.css";
 import { dataContainer } from "./Store";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CreateBook = ({ book, updateMode, setUpdateMode }) => {
   let data = useContext(dataContainer);
+  let navigate = useNavigate();
   const [title, setTitle] = useState(updateMode ? book.title : "");
   const [desc, setDesc] = useState(updateMode ? book.description : "");
   const [url, setUrl] = useState(updateMode ? book.src : "");
@@ -17,6 +18,7 @@ const CreateBook = ({ book, updateMode, setUpdateMode }) => {
       description: desc,
       src: url,
     });
+    navigate("/");
   };
 
   let updateBook = () => {
@@ -27,6 +29,7 @@ const CreateBook = ({ book, updateMode, setUpdateMode }) => {
       src: url,
     });
     setUpdateMode(false);
+    navigate("/");
   };
 
   return (
@@ -71,13 +74,19 @@ const CreateBook = ({ book, updateMode, setUpdateMode }) => {
       <label>
         <img src={url} alt={"choose a foto"} width={"150px"} />
       </label>
-      <NavLink to={"/"}>
-        {updateMode ? (
+      {updateMode ? (
+        <div>
           <button onClick={updateBook}>Update</button>
-        ) : (
-          <button onClick={createBook}>Create</button>
-        )}
-      </NavLink>
+          <button
+            onClick={() => {
+              setUpdateMode(false);
+            }}>
+            Back
+          </button>
+        </div>
+      ) : (
+        <button onClick={createBook}>Create</button>
+      )}
     </div>
   );
 };
