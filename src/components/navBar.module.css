@@ -1,0 +1,13 @@
+.navBarContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*  gap between column and row */
+    gap: 1em;
+    justify-content: center;
+    margin: 5%;
+}
+
+.navBarContainer button {
+    width: 100px;
+}
