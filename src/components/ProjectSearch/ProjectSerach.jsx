@@ -30,7 +30,7 @@ const ProjectSerach = () => {
     result = names.filter((name) => {
       let lettersLength = letters?.length;
       if (lettersLength > 0) {
-        return name.toLowerCase().indexOf(letters) >= 0;
+        return name.toLowerCase().indexOf(letters.toLowerCase()) >= 0;
       }
     });
   };
@@ -48,7 +48,11 @@ const ProjectSerach = () => {
       />
       <div>
         {result?.map((name) => (
-          <div key={name}>
+          <div
+            key={name}
+            onClick={() => {
+              setLetters(name);
+            }}>
             {name.indexOf(letters) > 0 ? (
               <div>
                 <span>{name.slice(0, name.indexOf(letters))}</span>
