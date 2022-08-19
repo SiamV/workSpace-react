@@ -9,7 +9,7 @@ const NavBar = () => {
         <button>Search </button>
       </NavLink>
       <NavLink to={"/"}>
-        <button>New Project</button>
+        <button>Next Project</button>
       </NavLink>
       <NavLink to={"/"}>
         <button>New Project</button>
