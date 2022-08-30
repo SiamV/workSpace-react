@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Modal from './components/Modal/Modal';
 import NavBar from './components/NavBar';
 import ProjectSerach from './components/ProjectSearch/ProjectSerach';
+import Modal from './components/Modal/Modal';
 
 function App() {
   return (
