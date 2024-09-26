@@ -8,8 +8,8 @@ const NavBar = () => {
       <NavLink to={"/project-search"}>
         <button>Search </button>
       </NavLink>
-      <NavLink to={"/"}>
-        <button>Next Project</button>
+      <NavLink to={"/modal"}>
+        <button>Modal</button>
       </NavLink>
       <NavLink to={"/"}>
         <button>New Project</button>

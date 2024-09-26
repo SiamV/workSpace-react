@@ -26,17 +26,19 @@ const ProjectSerach = () => {
     "Harper",
   ];
   let result = [];
-  let searchData = (letters) => {
-    result = names.filter((name) => {
-      let lettersLength = letters?.length;
-      if (lettersLength > 0) {
-        return name.toLowerCase().indexOf(letters.toLowerCase()) >= 0;
-      }
-    });
-  };
 
   const [letters, setLetters] = useState("");
-  useMemo(() => searchData(letters), [letters]);
+  useMemo(() => {
+    let searchData = (letters) => {
+      result = names.filter((name) => {
+        let lettersLength = letters?.length;
+        if (lettersLength > 0) {
+          return name.toLowerCase().indexOf(letters.toLowerCase()) >= 0;
+        }
+      });
+    };
+    searchData(letters);
+  }, [letters]);
   return (
     <div className={styles.mainContainer}>
       <div>{`Result: ${result.length}`}</div>
